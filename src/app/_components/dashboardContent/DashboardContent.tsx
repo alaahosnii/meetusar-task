@@ -14,8 +14,7 @@ const DashboardContent = () => {
     const { user, isLogoutLoading, getLoggedInUserError } = useSelector((state: RootState) => state.auth);
     useEffect(() => {
         if (getLoggedInUserError) {
-            console.log("getLoggedInUserError", getLoggedInUserError);
-            
+
             router.replace("/login");
         }
     }, [getLoggedInUserError]);
@@ -24,8 +23,6 @@ const DashboardContent = () => {
             await dispatch(logOutUser()).unwrap();
             router.replace("/login");
         } catch (error) {
-            console.error("Logout failed:", error);
-            // Even if logout fails, clear local state and redirect
             router.replace("/login");
         }
     };

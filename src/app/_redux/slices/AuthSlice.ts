@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axiosInstance from "../services/axiosInstance";
-import { Error, LoginData } from "@/app/_types/productTypes";
+import { Error, LoginData } from "@/app/_types/Types";
 import { AxiosError } from "axios";
-import { LoginResponse } from "@/app/_types/loginResponse";
-import { GetUserInfoResponse } from "@/app/_types/getUserInfoResponse";
+import { LoginResponse } from "@/app/_types/Types";
+import { GetUserInfoResponse } from "@/app/_types/Types";
 
 type AuthError = {
     error: Error

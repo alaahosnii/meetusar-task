@@ -1,6 +1,6 @@
 "use client"
 import { createContext, useState } from "react";
-import { UserInfo } from "../_types/userInfo";
+import { UserInfo } from "../_types/Types";
 
 type UserInfoContextType = {
     userInfo: UserInfo | null,

@@ -7,7 +7,7 @@ import { Id, toast } from 'react-toastify';
 import { loginUser, resetLoginError } from '@/app/_redux/slices/AuthSlice';
 import { useRouter } from 'next/navigation';
 import { AppDispatch, RootState } from '@/app/_redux/store';
-import { FormError, LoginData } from '@/app/_types/productTypes';
+import { FormError, LoginData } from '@/app/_types/Types';
 import Image from 'next/image';
 
 

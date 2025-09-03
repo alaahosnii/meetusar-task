@@ -12,10 +12,11 @@ import {
     X,
     LogOut,
 } from "lucide-react";
+import { GetUserInfoResponse } from "@/app/_types/Types";
 
 interface DashboardLayoutProps {
     children: React.ReactNode;
-    user: any;
+    user: GetUserInfoResponse;
     onLogout: () => void;
     isLogoutLoading: boolean;
 }

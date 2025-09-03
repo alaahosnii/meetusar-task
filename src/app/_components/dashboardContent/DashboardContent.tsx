@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import DashboardLayout from "./DashboardLayout";
 import DashboardWidgets from "./DashboardWidgets";
 import DashboardLoading from "./DashboardLoading";
+import { GetUserInfoResponse } from "@/app/_types/Types";
 
 const DashboardContent = () => {
     const router = useRouter();
@@ -35,12 +36,12 @@ const DashboardContent = () => {
     return !user && getLoggedInUserLoading ? (
         <DashboardLoading />
     ) : (
-        <DashboardLayout
-            user={user}
+          <DashboardLayout
+            user={user as GetUserInfoResponse}
             onLogout={handleLogout}
             isLogoutLoading={isLogoutLoading}
         >
-            <DashboardWidgets user={user} />
+            {user && <DashboardWidgets user={user} />}
         </DashboardLayout>
     )
 }

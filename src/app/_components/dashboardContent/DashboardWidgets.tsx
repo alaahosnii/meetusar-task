@@ -1,3 +1,4 @@
+import { GetUserInfoResponse } from "@/app/_types/Types";
 import {
     Users,
     TrendingUp,
@@ -7,11 +8,10 @@ import {
 
 
 interface DashboardWidgetsProps {
-    user: any;
+    user: GetUserInfoResponse;
 }
 
 const DashboardWidgets = ({ user }: DashboardWidgetsProps) => {
-    // Mock data - in a real app, this would come from API calls
     const stats = [
         {
             name: 'Total Users',
@@ -55,7 +55,7 @@ const DashboardWidgets = ({ user }: DashboardWidgetsProps) => {
                             Welcome back, {user?.name?.split(' ')[0] || 'User'}!
                         </h2>
                         <p className="text-blue-100 mt-1">
-                            Here's what's happening with your business today.
+                            Here&apos;s what&apos;s happening with your business today.
                         </p>
                     </div>
                     <div className="hidden md:block">

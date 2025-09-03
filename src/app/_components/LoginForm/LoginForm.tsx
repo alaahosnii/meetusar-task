@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import { Formik } from 'formik';
-import { TextField, InputAdornment } from '@mui/material';
+import { TextField, InputAdornment, Link } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { Id, toast } from 'react-toastify';
 import { resetLoginError } from '@/app/_redux/slices/Auth/AuthSlice';
@@ -15,7 +15,7 @@ import Image from 'next/image';
 function LoginForm() {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useRouter();
-  const { loginError, isLoginLoading , isLoggedIn } = useSelector((state: RootState) => state.auth);
+  const { loginError, isLoginLoading, isLoggedIn } = useSelector((state: RootState) => state.auth);
   const [id, setId] = useState<Id>();
   if (isLoginLoading) {
     console.log("loading");
@@ -203,10 +203,13 @@ function LoginForm() {
               <button
                 type='submit'
                 disabled={!values.email || !values.password || isLoginLoading}
-                className={`${!loginError && 'mt-5'} hover:opacity-90 active:opacity-100 transition-opacity bg-[#9414FF] text-white rounded-lg h-[43px] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed`}
+                className={`${!loginError && 'mt-7'} hover:opacity-90 active:opacity-100 transition-opacity bg-[#9414FF] text-white rounded-lg h-[43px] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed`}
               >
                 Login
               </button>
+              <div className='flex justify-center mt-5 cursor-pointer'>
+                <p className='text-sm text-gray-500 mt-3'>Don&apos;t have an account? Sign up</p>
+              </div>
             </form>
           )}
         </Formik>

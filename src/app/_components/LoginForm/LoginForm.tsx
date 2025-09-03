@@ -68,7 +68,7 @@ function LoginForm() {
   return (
     <div className='flex justify-center'>
       <div className='flex flex-col gap-1 w-[60%] items-center'>
-        <h2 className='lg:text-[56px] text-3xl font-[400]'>Welcome back</h2>
+        <h2 className='lg:text-[51px] text-3xl font-[400]'>Welcome back</h2>
         <div className='w-[100%]'>
           <p className='text-[18px] font-[400] text-[rgba(98,98,107,1)] text-center'>Step into our shopping metaverse for an unforgettable shopping experience</p>
         </div>

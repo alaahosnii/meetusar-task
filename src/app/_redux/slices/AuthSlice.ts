@@ -101,7 +101,7 @@ const authSlice = createSlice({
                 state.isLogoutLoading = true;
                 state.logoutError = null;
             })
-            .addCase(logOutUser.fulfilled, (state, action) => {
+            .addCase(logOutUser.fulfilled, (state) => {
                 state.isLoggedIn = false;
                 state.user = null;
                 state.token = null;

@@ -3,13 +3,11 @@ import { AppDispatch, RootState } from "@/app/_redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { getLoggedInUser, logOutUser } from "@/app/_redux/slices/AuthSlice";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { Id, toast } from "react-toastify";
+import { useEffect } from "react";
 
 const DashboardContent = () => {
     const router = useRouter();
     const dispatch = useDispatch<AppDispatch>();
-    const [id, setId] = useState<Id>();
     useEffect(() => {
         dispatch(getLoggedInUser());
     }, []);

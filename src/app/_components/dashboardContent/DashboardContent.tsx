@@ -19,12 +19,8 @@ const DashboardContent = () => {
         }
     }, [getLoggedInUserError]);
     const handleLogout = async () => {
-        try {
-            await dispatch(logOutUser()).unwrap();
-            router.replace("/login");
-        } catch (error) {
-            router.replace("/login");
-        }
+        await dispatch(logOutUser()).unwrap();
+        router.replace("/login");
     };
 
     const getInitials = (fullName?: string) => {

@@ -2,7 +2,6 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
 export function middleware(req: NextRequest) {
-    console.log("middleware");
     const token = req.cookies.get('meetusartoken')?.value    
     const { pathname } = req.nextUrl
     // if not logged in and trying to access dashboard, go to login

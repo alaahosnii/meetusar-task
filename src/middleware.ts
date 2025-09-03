@@ -5,7 +5,7 @@ export function middleware(req: NextRequest) {
     const token = req.cookies.get('meetusartoken')?.value    
     const { pathname } = req.nextUrl
     // if not logged in and trying to access dashboard, go to login
-    if (!token && pathname === '/') {
+    if (!token && pathname === '/' || pathname === '/dashboard') {
         return NextResponse.redirect(new URL('/login', req.url))
     }
 
@@ -19,5 +19,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/', '/login']
+    matcher: ['/', '/login' , '/dashboard']
 }

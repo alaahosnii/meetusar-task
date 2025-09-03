@@ -4,18 +4,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { getLoggedInUser, logOutUser } from "@/app/_redux/slices/Auth/thunks/authThunks";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
-import UserProfileCard from "./UserProfileCard";
+import DashboardLayout from "./DashboardLayout";
+import DashboardWidgets from "./DashboardWidgets";
+import DashboardLoading from "./DashboardLoading";
 
 const DashboardContent = () => {
     const router = useRouter();
     const dispatch = useDispatch<AppDispatch>();
-    
+
     useEffect(() => {
         dispatch(getLoggedInUser());
     }, []);
-    
-    const { user, isLogoutLoading, getLoggedInUserError } = useSelector((state: RootState) => state.auth);
-    
+
+    const { user, isLogoutLoading, getLoggedInUserError, getLoggedInUserLoading } = useSelector((state: RootState) => state.auth);
+
     useEffect(() => {
         if (getLoggedInUserError) {
             if (getLoggedInUserError.status === 401) {
@@ -23,19 +25,24 @@ const DashboardContent = () => {
             }
         }
     }, [getLoggedInUserError]);
-    
+
     const handleLogout = async () => {
         await dispatch(logOutUser()).unwrap();
         router.replace("/login");
     };
 
-    return user ? (
-        <UserProfileCard 
-            user={user} 
-            onLogout={handleLogout} 
-            isLogoutLoading={isLogoutLoading} 
-        />
-    ) : null;
+
+    return !user && getLoggedInUserLoading ? (
+        <DashboardLoading />
+    ) : (
+        <DashboardLayout
+            user={user}
+            onLogout={handleLogout}
+            isLogoutLoading={isLogoutLoading}
+        >
+            <DashboardWidgets user={user} />
+        </DashboardLayout>
+    )
 }
 
 export default DashboardContent

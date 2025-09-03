@@ -37,7 +37,6 @@ const authSlice = createSlice({
                 state.loginError = null;
             })
             .addCase(loginUser.fulfilled, (state, action) => {
-                console.log("action.payload", action.payload);
                 state.token = action.payload.token;
                 state.isLoggedIn = true;
                 state.isLoginLoading = false;
@@ -62,7 +61,6 @@ const authSlice = createSlice({
                 state.isLogoutLoading = false;
                 state.logoutError = null;
                 localStorage.removeItem("isLoggedIn");
-                localStorage.removeItem("token");
             })
             .addCase(logOutUser.rejected, (state, action) => {
                 state.isLoggedIn = false;
@@ -71,7 +69,6 @@ const authSlice = createSlice({
                 state.isLogoutLoading = false;
                 state.logoutError = action.payload as Error;
                 localStorage.removeItem("isLoggedIn");
-                localStorage.removeItem("token");
             })
             .addCase(getLoggedInUser.pending, (state) => {
                 state.getLoggedInUserLoading = true;

@@ -17,10 +17,11 @@ export async function GET(request: NextRequest) {
         return NextResponse.json(response.data);
     } catch (error: unknown) {
         const axiosError = error as AxiosError;
+        console.log("axiosError", axiosError.response?.status);
         const cookieStore = await cookies();
         cookieStore.delete("meetusartoken");
         return NextResponse.json(
-            { error: axiosError?.response?.data || "Something went wrong" },
+            { error: axiosError?.response?.data || "Something went wrong" , status: axiosError?.response?.status || 400 },
             { status: axiosError?.response?.status || 400 }
         );
     }

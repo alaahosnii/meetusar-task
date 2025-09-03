@@ -14,8 +14,9 @@ const DashboardContent = () => {
     const { user, isLogoutLoading, getLoggedInUserError } = useSelector((state: RootState) => state.auth);
     useEffect(() => {
         if (getLoggedInUserError) {
-
-            router.replace("/login");
+            if (getLoggedInUserError.status === 401) {
+                router.replace("/login");
+            }
         }
     }, [getLoggedInUserError]);
     const handleLogout = async () => {

@@ -6,7 +6,7 @@ export type LoginResponse = {
 }
 
 export type Error = {
-    status: boolean;
+    status: number;
     message: string;
 }
 

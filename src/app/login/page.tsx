@@ -14,7 +14,7 @@ const Login = () => {
         <div className='col-span-1 sm:col-span-1 lg:col-span-5 order-2 sm:order-1 lg:order-1'>
           <LoginForm />
         </div>
-        <div className='col-span-1 sm:col-span-1 lg:col-span-7 order-1 sm:order-2 lg:order-2 flex justify-center items-center h-64 sm:h-80 lg:h-screen'>
+        <div className='col-span-1 sm:col-span-1 lg:col-span-7 order-1 sm:order-2 lg:order-2 flex justify-center items-center h-64 sm:h-screen'>
           <Image
             src="/logo_section.png"
             alt="login"

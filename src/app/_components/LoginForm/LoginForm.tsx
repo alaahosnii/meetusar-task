@@ -66,12 +66,15 @@ function LoginForm() {
     password: ""
   }
   return (
-    <div className='flex justify-center'>
-      <div className='flex flex-col gap-1 w-[60%] items-center'>
-        <h2 className='lg:text-[51px] text-3xl font-[400]'>Welcome back</h2>
-        <div className='w-[100%]'>
-          <p className='text-[18px] font-[400] text-[rgba(98,98,107,1)] text-center'>Step into our shopping metaverse for an unforgettable shopping experience</p>
+    <div className='flex justify-center items-center h-full lg:h-screen'>
+      <div className='flex flex-col gap-[36px] w-[90%] lg:w-[60%] items-center'>
+        <div className='flex flex-col gap-2 items-center'>
+          <h2 className='lg:text-[51px] text-center text-3xl font-[400]'>Welcome back</h2>
+          <div className='w-[100%]'>
+            <p className='text-[18px] font-[400] text-[rgba(98,98,107,1)] text-center'>Step into our shopping metaverse for an unforgettable shopping experience</p>
+          </div>
         </div>
+
         <Formik
           initialValues={loginData}
           validate={values => {
@@ -107,8 +110,8 @@ function LoginForm() {
             setFieldError,
             /* and other goodies */
           }) => (
-            <form className='flex flex-col w-full' onSubmit={handleSubmit}>
-              <div className='mt-3 flex flex-col gap-3'>
+            <form className='flex gap-[36px] flex-col w-full' onSubmit={handleSubmit}>
+              <div className=' flex flex-col gap-[20px]'>
                 <TextField
                   type="email"
                   id="email"
@@ -203,12 +206,12 @@ function LoginForm() {
               <button
                 type='submit'
                 disabled={!values.email || !values.password || isLoginLoading}
-                className={`${!loginError && 'mt-7'} hover:opacity-90 active:opacity-100 transition-opacity bg-[#9414FF] text-white rounded-lg h-[43px] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed`}
+                className={`${!loginError} hover:opacity-90 active:opacity-100 transition-opacity bg-[#9414FF] text-white rounded-lg h-[43px] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed`}
               >
                 Login
               </button>
-              <div className='flex justify-center mt-5 cursor-pointer'>
-                <p className='text-[14px] text-[rgba(98,98,107,1)] mt-3'>Don&apos;t have an account? Sign up</p>
+              <div className='flex justify-center cursor-pointer'>
+                <p className='text-[14px] text-[rgba(98,98,107,1)]'>Don&apos;t have an account? Sign up</p>
               </div>
             </form>
           )}

@@ -6,8 +6,6 @@ import {
     Users,
     BarChart3,
     Settings,
-    Bell,
-    Search,
     Menu,
     X,
     LogOut,

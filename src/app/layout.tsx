@@ -13,6 +13,9 @@ const abeeze = ABeeZee({
 export const metadata: Metadata = {
   title: "MeetUsar Dashboard",
   description: "MeetUsar Dashboard",
+  icons: {
+    icon: "/logo.svg",
+  },
 };
 
 export default function RootLayout({

@@ -3,6 +3,7 @@ import { ABeeZee } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { ToastContainer } from "react-toastify";
+import { Analytics } from "@vercel/analytics/react";
 
 const abeeze = ABeeZee({
   variable: "--font-abeeze",
@@ -31,6 +32,7 @@ export default function RootLayout({
         <Providers>
           <ToastContainer />
           {children}
+          <Analytics />
         </Providers>
       </body>
     </html>
